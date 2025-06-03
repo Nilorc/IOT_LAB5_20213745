@@ -1,51 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="24dp"
+    android:gravity="center_horizontal"
+    android:background="@color/naranja"
     tools:context=".MainActivity">
 
+    <!-- Imagen ilustrativa -->
     <ImageView
         android:id="@+id/imageViewPerfil"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:src="@drawable/ic_launcher_foreground"
+        android:scaleType="fitCenter"
+        android:background="@drawable/rounded_top_image"
         android:contentDescription="@string/descripcion_foto_perfil"
         android:clickable="true"
-        android:focusable="true"
-        android:scaleType="centerCrop" />
+        android:focusable="true" />
 
+    <!-- Contenedor inferior -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:id="@+id/textViewSaludo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="¡Hola, Usuario!"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/textViewMotivacion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="¡Tú puedes!"
+            android:textSize="18sp"
+            android:textColor="#FFFFFF"
+            android:layout_marginBottom="24dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonVerHabitos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ver mis hábitos"
+            android:textColor="#FF6D2D"
+            android:background="@drawable/boton_blanco"
+            android:layout_marginBottom="16dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonConfiguraciones"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Configuraciones"
+            android:textColor="#FF5722"
+            android:background="@drawable/boton_blanco" />
+    </LinearLayout>
+
+    <!-- Texto de crédito -->
     <TextView
-        android:id="@+id/textViewSaludo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="¡Hola!"
-        android:textSize="22sp"
-        android:layout_gravity="center"
-        android:paddingTop="16dp" />
-
-    <TextView
-        android:id="@+id/textViewMotivacion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="¡Tú puedes!"
-        android:textSize="18sp"
-        android:layout_gravity="center"
-        android:paddingBottom="32dp" />
-
-    <Button
-        android:id="@+id/buttonVerHabitos"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Ver mis hábitos" />
-
-    <Button
-        android:id="@+id/buttonConfiguraciones"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Configuraciones"
-        android:layout_marginTop="12dp" />
+        android:text="Elaborado por Nilo Cori - 20213745"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        android:layout_marginBottom="8dp"
+        android:layout_gravity="center_horizontal" />
 </LinearLayout>

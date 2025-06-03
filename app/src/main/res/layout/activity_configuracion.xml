@@ -1,37 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="24dp"
+    android:background="#FFFFFF"
     tools:context=".ConfiguracionActivity">
 
-    <EditText
-        android:id="@+id/editTextNombre"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nombre del usuario" />
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal">
 
-    <EditText
-        android:id="@+id/editTextMensaje"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Mensaje motivacional"
-        android:layout_marginTop="12dp" />
+        <!-- Título principal -->
+        <TextView
+            android:id="@+id/tituloConfiguracion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Configuración"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="@color/naranja"
+            android:layout_marginBottom="24dp" />
 
-    <EditText
-        android:id="@+id/editTextHoras"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Frecuencia (en horas)"
-        android:inputType="number"
-        android:layout_marginTop="12dp" />
+        <!-- Campo: Nombre -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="#FF6D2D"
+            app:hintTextColor="@color/naranja"
+            android:layout_marginBottom="12dp">
 
-    <Button
-        android:id="@+id/buttonGuardar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Guardar"
-        android:layout_marginTop="24dp" />
-</LinearLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextNombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nombre del usuario"
+                android:textColor="#FF6D2D"
+                android:textColorHint="#FF6D2D" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Campo: Mensaje motivacional -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="#FF6D2D"
+            app:hintTextColor="@color/naranja"
+            android:layout_marginBottom="12dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextMensaje"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Mensaje motivacional"
+                android:textColor="#FF6D2D"
+                android:textColorHint="#FF6D2D" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Campo: Frecuencia -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="#FF6D2D"
+            app:hintTextColor="@color/naranja"
+            android:layout_marginBottom="24dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextHoras"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Frecuencia (en horas)"
+                android:inputType="number"
+                android:textColor="#FF6D2D"
+                android:textColorHint="#FF6D2D" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Botón guardar -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonGuardar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Guardar"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="@color/naranja"
+            app:cornerRadius="40dp"
+            android:layout_marginTop="12dp" />
+    </LinearLayout>
+</ScrollView>

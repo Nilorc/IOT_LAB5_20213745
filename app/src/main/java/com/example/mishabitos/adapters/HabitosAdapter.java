@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -61,7 +62,7 @@ public class HabitosAdapter extends RecyclerView.Adapter<HabitosAdapter.HabitoVi
 
     public static class HabitoViewHolder extends RecyclerView.ViewHolder {
         TextView textNombre, textCategoria, textFrecuencia, textInicio;
-        Button buttonEliminar;
+        ImageButton buttonEliminar;
 
         public HabitoViewHolder(@NonNull View itemView) {
             super(itemView);
