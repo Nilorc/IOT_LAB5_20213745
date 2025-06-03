@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Mis Hábitos</string>
+    <string name="titulo_principal">¡Hola, %1$s!</string>
+    <string name="mensaje_predeterminado">¡Tú puedes lograrlo!</string>
+    <string name="boton_ver_habitos">Ver mis hábitos</string>
+    <string name="boton_configuracion">Configuraciones</string>
+    <string name="descripcion_foto_perfil">Foto de perfil</string>
+
+    <string-array name="categorias_array">
+        <item>Ejercicio</item>
+        <item>Alimentación</item>
+        <item>Sueño</item>
+        <item>Lectura</item>
+        <item>Otro</item>
+    </string-array>
+
+</resources>
