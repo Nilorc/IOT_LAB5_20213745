@@ -1,72 +1,68 @@
-# LAB5_20213745 - Mis Hábitos (App Android)
+# 📱 LAB5 + LAB7 - Mis Hábitos (App Android con Almacenamiento en la Nube)
 
 ### Curso: Servicios y Aplicaciones para IoT [1TEL05]  
 ### Semestre: 2025-1  
-### Estudiante: Nilo Rikel Cori Ramos
+### Estudiante: Nilo Rikel Cori Ramos  
 ### Código PUCP: 20213745  
-### Fecha de entrega: 31/05/2025
+### Fecha de entrega: 01/07/2025
 
 ---
 
 ## 📱 Descripción del Proyecto
 
-**Mis Hábitos** es una aplicación móvil desarrollada en **Java** con **Android Studio**, que permite a los usuarios gestionar hábitos saludables, recibir recordatorios personalizados y guardar sus datos de forma persistente en almacenamiento local. 
+**Mis Hábitos** es una aplicación móvil Android desarrollada en **Java con Android Studio**, que permite a los usuarios crear, visualizar y gestionar sus hábitos saludables, además de recibir notificaciones programadas como recordatorios.
 
-Este proyecto corresponde al **Quinto Laboratorio del curso 1TEL05**, y ha sido implementado de forma individual siguiendo los requerimientos indicados por el curso.
+Este proyecto fue originalmente desarrollado para el **Laboratorio 5**, y ha sido extendido para cumplir con los requerimientos del **Laboratorio 7**, implementando funcionalidad de **almacenamiento en la nube con Cloudinary**.
 
 ---
 
 ## 🧩 Funcionalidades Implementadas
 
-### 🟢 Ejercicio 1: Interfaz de Usuario (4 pts)
+### ✅ Ejercicios del Lab 5: Gestión de Hábitos y Recordatorios
 
-- ✅ **Pantalla de bienvenida personalizada**:
-  - Saludo dinámico con el nombre del usuario.
-  - Mensaje motivacional configurable.
-  - Imagen de perfil seleccionada desde la galería y almacenada en Internal Storage.
-  - Botones: *Ver mis hábitos* y *Configuraciones*.
-  - Uso de `SharedPreferences` para guardar nombre y mensaje.
+#### 🟢 Ejercicio 1: Interfaz de Usuario
 
-- ✅ **Listado de hábitos activos**:
-  - RecyclerView con todos los hábitos registrados.
-  - Cada hábito muestra: nombre, categoría, frecuencia (cada X horas), fecha y hora de inicio.
-  - Botón para agregar nuevo hábito.
+- Pantalla de bienvenida con nombre, frase motivacional e imagen de perfil.
+- Visualización de hábitos en RecyclerView.
+- Formulario para crear un nuevo hábito.
 
-- ✅ **Pantalla de creación de hábito**:
-  - Formulario para ingresar todos los datos del hábito.
-  - Almacenamiento local del hábito para uso posterior.
+#### 🟡 Ejercicio 2: Notificaciones
 
----
+- Notificaciones periódicas por hábito usando `AlarmManager`.
+- Canales de notificación según categoría (Ejercicio, Lectura, Sueño, etc.).
+- Mensajes motivacionales configurables.
 
-### 🟡 Ejercicio 2: Notificaciones y Recordatorios (6 pts)
+#### 🔵 Ejercicio 3: Persistencia local
 
-- ✅ **Notificaciones programadas por hábito**:
-  - Cada hábito tiene una notificación periódica programada según su frecuencia.
-  - Incluye nombre del hábito, acción sugerida e ícono representativo.
-
-- ✅ **Canales de notificación por categoría**:
-  - Canales: “Ejercicio”, “Alimentación”, “Sueño”, “Lectura”.
-  - Configuraciones diferenciadas (IMPORTANCE_HIGH, vibración, etc.).
-  - Compatible con versiones API >= 26.
-
-- ✅ **Notificación motivacional configurable**:
-  - El usuario puede definir un mensaje motivacional y su frecuencia de repetición.
-  - Almacenado con `SharedPreferences`.
+- Guardado y restauración automática de hábitos en `SharedPreferences` (JSON).
+- Eliminación de hábitos con confirmación.
+- Mensaje cuando no hay hábitos registrados.
 
 ---
 
-### 🔵 Ejercicio 3: Almacenamiento Local (5 pts)
+### ☁️ Funcionalidades del Lab 7: Almacenamiento en la Nube (Cloudinary)
 
-- ✅ **Persistencia automática de hábitos**:
-  - Cada vez que se añade, edita o elimina un hábito, los datos se guardan automáticamente usando `SharedPreferences` en formato JSON.
+Se ha añadido una vista específica para el laboratorio 7 que permite trabajar con imágenes en la nube:
 
-- ✅ **Carga automática al iniciar**:
-  - Al iniciar la app, se cargan los hábitos guardados.
-  - Si no existen hábitos, se muestra el mensaje: “No hay hábitos registrados”.
+#### ✅ Subida de Fotos
+- Permite seleccionar una imagen desde la galería.
+- La imagen se **sube automáticamente** a **Cloudinary** en la carpeta `Fotos_lab7`.
+- Se muestra la imagen seleccionada en una vista previa (`ImageView`).
+- La **URL pública** generada se muestra en un campo editable para copiarla fácilmente.
+- Se muestra un `Toast` con el enlace de la imagen al subir exitosamente.
 
-- ✅ **Eliminación de hábitos con confirmación**:
-  - Al presionar el botón eliminar, se abre un diálogo de confirmación.
-  - El hábito se elimina del RecyclerView y del almacenamiento.
+#### ✅ Visualización de Imágenes desde la Nube
+- Al ingresar manualmente una URL válida, se puede **mostrar la imagen directamente** desde Cloudinary.
+- La imagen se renderiza en el mismo `ImageView`.
+
+#### ✅ Descarga al dispositivo
+- Una vez subida o visualizada una imagen, se puede **descargar al almacenamiento del dispositivo** con un solo clic.
+- Si no hay imagen cargada o URL válida, se muestran advertencias.
+
+#### ✅ Validaciones incluidas
+- Verificación de que la URL sea válida antes de mostrar.
+- Evita intentar descargar si no hay imagen cargada o válida.
+- Mensajes claros al usuario en caso de errores o acciones inválidas.
 
 ---
 
@@ -74,26 +70,27 @@ Este proyecto corresponde al **Quinto Laboratorio del curso 1TEL05**, y ha sido 
 
 - Java
 - Android Studio
-- SharedPreferences
-- AlarmManager
-- RecyclerView
-- NotificationManager & Notification Channels
-- Internal Storage
-- Material Design (Buttons, Layouts)
+- SharedPreferences (persistencia local)
+- AlarmManager (recordatorios)
+- NotificationManager (notificaciones)
+- Cloudinary API (almacenamiento en la nube)
+- Picasso (renderizado de imágenes desde URL)
+- DownloadManager (descarga al dispositivo)
+- Material Design (componentes visuales)
 
 ---
 
 ## 🤖 Uso de Inteligencia Artificial
 
-Durante el desarrollo de este laboratorio, se hizo uso de **IA generativa (ChatGPT de OpenAI)** para:
-- Corregir errores de compilación y lógica.
-- Mejorar la estructura del código Java y XML.
-- Optimizar la organización visual de la interfaz (UI/UX).
-- Implementar buenas prácticas de desarrollo en Android Studio.
+Durante el desarrollo del laboratorio 5 y 7, se utilizó **ChatGPT de OpenAI** como asistente para:
+- Detectar errores y refactorizar código.
+- Optimizar la carga y subida de imágenes.
+- Mejorar el diseño UI siguiendo prácticas de Material Design.
+- Automatizar flujos con manejo de URI e integración segura con Cloudinary.
 
 ---
 
-## 🔗 Enlace al repositorio
+## 🔗 Enlace al Repositorio
 
 [https://github.com/Nilorc/IOT_LAB5_20213745](https://github.com/Nilorc/IOT_LAB5_20213745)
 
@@ -101,4 +98,4 @@ Durante el desarrollo de este laboratorio, se hizo uso de **IA generativa (ChatG
 
 ## 📌 Nota
 
-Este proyecto ha sido desarrollado de manera individual respetando las normas académicas de la PUCP.
+Este proyecto ha sido desarrollado de manera individual, respetando las normas académicas de la PUCP y los principios de integridad en la evaluación.
