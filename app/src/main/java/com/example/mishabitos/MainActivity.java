@@ -1,5 +1,6 @@
 package com.example.mishabitos;
 
+import android.Manifest;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -7,14 +8,12 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.widget.Toast;
-import android.Manifest;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.example.mishabitos.databinding.ActivityMainBinding;
-import com.example.mishabitos.receivers.RecordatorioReceiver;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -38,35 +37,24 @@ public class MainActivity extends AppCompatActivity {
 
         preferences = getSharedPreferences(PREF_NAME, MODE_PRIVATE);
 
-        // Botón: ir a lista de hábitos
-        binding.buttonVerHabitos.setOnClickListener(v -> {
-            startActivity(new Intent(this, HabitosActivity.class));
-        });
+        binding.buttonVerHabitos.setOnClickListener(v ->
+                startActivity(new Intent(this, HabitosActivity.class)));
 
-        // Botón: ir a configuración
-        binding.buttonConfiguraciones.setOnClickListener(v -> {
-            startActivity(new Intent(this, ConfiguracionActivity.class));
-        });
+        binding.buttonConfiguraciones.setOnClickListener(v ->
+                startActivity(new Intent(this, ConfiguracionActivity.class)));
 
-        // Imagen: seleccionar desde galería
+        binding.lab7.setOnClickListener(v ->
+                startActivity(new Intent(this, SubirFotoActivity.class)));
+
         binding.imageViewPerfil.setOnClickListener(v -> seleccionarImagen());
 
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS)
-                    != PackageManager.PERMISSION_GRANTED) {
-
-                ActivityCompat.requestPermissions(this,
-                        new String[]{Manifest.permission.POST_NOTIFICATIONS}, 100);
-            }
-        }
-
+        verificarPermisos();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        cargarDatos(); // Actualiza datos siempre que se regreses
+        cargarDatos();
     }
 
     private void cargarDatos() {
@@ -114,6 +102,13 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
-
+    private void verificarPermisos() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS)
+                    != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(this,
+                        new String[]{Manifest.permission.POST_NOTIFICATIONS}, 100);
+            }
+        }
+    }
 }

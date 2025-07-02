@@ -18,10 +18,11 @@
         android:id="@+id/botonNuevo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="64dp"
+        android:backgroundTint="@color/naranja"
         android:text="Nuevo Hábito"
         android:textColor="#FFFFFF"
-        android:backgroundTint="@color/naranja"
-        app:cornerRadius="30dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="12dp" />
+        app:cornerRadius="30dp" />
 </RelativeLayout>

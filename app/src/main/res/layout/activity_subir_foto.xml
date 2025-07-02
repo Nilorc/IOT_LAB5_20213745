@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".SubirFotoActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal">
+
+        <!-- Título -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lab7 - Almacenamiento"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="#FF6D2D"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Imagen seleccionada / descargada -->
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:layout_marginBottom="16dp"
+            android:background="#EEEEEE" />
+
+        <!-- Botón: Seleccionar y subir imagen -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/uploadButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Seleccionar y Subir Imagen"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#EB6226"
+            app:cornerRadius="40dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Campo: URL de imagen (subida o externa) -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="#FF6D2D"
+            android:layout_marginBottom="12dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextUrl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="URL de imagen"
+                android:textColor="#FF6D2D"
+                android:textColorHint="#FF6D2D" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Botón: Ver imagen desde URL -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/downloadButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mostrar Imagen desde URL"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#EB6226"
+            app:cornerRadius="40dp"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Botón: Descargar imagen al dispositivo -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/downloadToDeviceButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Descargar Imagen al Dispositivo"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#E26129"
+            app:cornerRadius="40dp"
+            android:layout_marginBottom="24dp" />
+
+    </LinearLayout>
+</ScrollView>
